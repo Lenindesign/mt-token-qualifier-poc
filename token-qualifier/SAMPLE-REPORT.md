@@ -1,9 +1,9 @@
 # MotorTrend Token Qualification Report
 
-**Theme:** `motortrend` · **Generated:** 2026-09-22T00:55:52.809Z
+**Theme:** `motortrend` · **Generated:** 2026-09-22T01:58:40.831Z
 **Enforcement:** `blocking` — Band A failures block
 
-🔴 5 FAIL · 🟠 31 REVIEW · 🟡 41 WARN · 🟢 97 PASS
+🔴 5 FAIL · 🟠 55 REVIEW · 🟡 41 WARN · 🟢 101 PASS
 
 > ## 🟢 No blocking-eligible failures
 > Advisory findings below are worth reading but do not gate a merge.
@@ -18,7 +18,7 @@
 | Themes available | motortrend, hotrod, caranddriver |
 | Typography variants | 16 (0 tokenized) |
 | WCAG self-test | passed |
-| Judgment layer (Jev) | enabled · 0 calls · 133 cache hits |
+| Judgment layer (Jev) | enabled · 0 calls · 161 cache hits |
 
 ## Components
 
@@ -96,7 +96,419 @@ IDS and the HDS migration target agree on only 2 of 5 breakpoints (tablet=768px,
 
 **Recommendation:** Agree one breakpoint set before migrating any component. If HDS's set wins, audit every IDS responsive variant first: `sm` moves 640px → 320px and `xl` moves 1280px → 1440px, which will reflow layouts.
 
-## 🟠 Needs human review (31)
+## 🟠 Needs human review (55)
+
+#### 🟠 REVIEW — MG-02 · --color-primary-2 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.63  
+
+**Actual:** --color-palette-bg-brand  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-primary-2` (#e90c17, used as bg by Button) to HDS `--color-palette-bg-brand`. Confidence 0.63 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-primary-3 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.53  
+
+**Actual:** --color-palette-bg-brand  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-primary-3` (#ff858a, used as bg by Button) to HDS `--color-palette-bg-brand`. Confidence 0.53 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-secondary-1 (as border)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.57  
+
+**Actual:** --color-palette-border-brand  
+**Expected:** an HDS border role, or none
+
+Jev maps `--color-secondary-1` (#0865b4, used as border by Button) to HDS `--color-palette-border-brand`. Confidence 0.57 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-secondary-1 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.42  
+
+**Actual:** none  
+**Expected:** an HDS bg role, or none
+
+Jev found no HDS bg role that fits `--color-secondary-1`. HDS has one brand slot and no secondary or accent role, so this is expected for part of MotorTrend's palette — and it is the gap the migration has to resolve, not a mapping to force.
+
+**Affects:**
+- Button
+
+**Recommendation:** Escalate: `--color-secondary-1` has no HDS home as a bg. Either HDS gains a role for it, or MotorTrend accepts losing it.
+
+#### 🟠 REVIEW — MG-02 · --color-secondary-1 (as txt)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.45  
+
+**Actual:** --color-palette-txt-brand  
+**Expected:** an HDS txt role, or none
+
+Jev maps `--color-secondary-1` (#0865b4, used as txt by Button) to HDS `--color-palette-txt-brand`. Confidence 0.45 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-secondary-3 (as border)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.33  
+
+**Actual:** --color-palette-border-brand  
+**Expected:** an HDS border role, or none
+
+Jev maps `--color-secondary-3` (#c1eaff, used as border by Button) to HDS `--color-palette-border-brand`. Confidence 0.33 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-secondary-3 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.36  
+
+**Actual:** none  
+**Expected:** an HDS bg role, or none
+
+Jev found no HDS bg role that fits `--color-secondary-3`. HDS has one brand slot and no secondary or accent role, so this is expected for part of MotorTrend's palette — and it is the gap the migration has to resolve, not a mapping to force.
+
+**Affects:**
+- Button
+
+**Recommendation:** Escalate: `--color-secondary-3` has no HDS home as a bg. Either HDS gains a role for it, or MotorTrend accepts losing it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-1 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.32  
+
+**Actual:** --color-palette-bg-default  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-neutral-1` (#141416, used as bg by Button, Card, Typography) to HDS `--color-palette-bg-default`. Confidence 0.32 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-1 (as txt)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.69  
+
+**Actual:** --color-palette-txt-default  
+**Expected:** an HDS txt role, or none
+
+Jev maps `--color-neutral-1` (#141416, used as txt by Button, Card, Typography) to HDS `--color-palette-txt-default`. Confidence 0.69 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-2 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.40  
+
+**Actual:** --color-palette-bg-default  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-neutral-2` (#23262f, used as bg by Button, Card, Typography) to HDS `--color-palette-bg-default`. Confidence 0.40 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-2 (as txt)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.62  
+
+**Actual:** --color-palette-txt-default  
+**Expected:** an HDS txt role, or none
+
+Jev maps `--color-neutral-2` (#23262f, used as txt by Button, Card, Typography) to HDS `--color-palette-txt-default`. Confidence 0.62 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-2 (as border)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.60  
+
+**Actual:** --color-palette-border-default  
+**Expected:** an HDS border role, or none
+
+Jev maps `--color-neutral-2` (#23262f, used as border by Button, Card, Typography) to HDS `--color-palette-border-default`. Confidence 0.60 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-3 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.40  
+
+**Actual:** --color-palette-bg-default  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-neutral-3` (#353945, used as bg by Button, Card, Typography) to HDS `--color-palette-bg-default`. Confidence 0.40 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-3 (as txt)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.61  
+
+**Actual:** --color-palette-txt-default  
+**Expected:** an HDS txt role, or none
+
+Jev maps `--color-neutral-3` (#353945, used as txt by Button, Card, Typography) to HDS `--color-palette-txt-default`. Confidence 0.61 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-3 (as border)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.60  
+
+**Actual:** --color-palette-border-default  
+**Expected:** an HDS border role, or none
+
+Jev maps `--color-neutral-3` (#353945, used as border by Button, Card, Typography) to HDS `--color-palette-border-default`. Confidence 0.60 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-4 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.37  
+
+**Actual:** --color-palette-bg-brand  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-neutral-4` (#6e7481, used as bg by Button) to HDS `--color-palette-bg-brand`. Confidence 0.37 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-5 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.39  
+
+**Actual:** --color-palette-bg-brand  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-neutral-5` (#b1b5c3, used as bg by Button) to HDS `--color-palette-bg-brand`. Confidence 0.39 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-6 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.60  
+
+**Actual:** --color-palette-bg-default  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-neutral-6` (#e6e8ec, used as bg by Button, Card, Typography) to HDS `--color-palette-bg-default`. Confidence 0.60 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-6 (as txt)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.19  
+
+**Actual:** --color-palette-txt-on-brand  
+**Expected:** an HDS txt role, or none
+
+Jev maps `--color-neutral-6` (#e6e8ec, used as txt by Button, Card, Typography) to HDS `--color-palette-txt-on-brand`. Confidence 0.19 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-6 (as border)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.67  
+
+**Actual:** --color-palette-border-default  
+**Expected:** an HDS border role, or none
+
+Jev maps `--color-neutral-6` (#e6e8ec, used as border by Button, Card, Typography) to HDS `--color-palette-border-default`. Confidence 0.67 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-7 (as bg)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.55  
+
+**Actual:** --color-palette-bg-default  
+**Expected:** an HDS bg role, or none
+
+Jev maps `--color-neutral-7` (#f4f5f6, used as bg by Button, Typography) to HDS `--color-palette-bg-default`. Confidence 0.55 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-7 (as txt)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.16  
+
+**Actual:** --color-palette-txt-on-brand  
+**Expected:** an HDS txt role, or none
+
+Jev maps `--color-neutral-7` (#f4f5f6, used as txt by Button, Typography) to HDS `--color-palette-txt-on-brand`. Confidence 0.16 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-8 (as txt)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.28  
+
+**Actual:** --color-palette-txt-knockout  
+**Expected:** an HDS txt role, or none
+
+Jev maps `--color-neutral-8` (#fcfcfd, used as txt by Button, Card, Typography) to HDS `--color-palette-txt-knockout`. Confidence 0.28 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
+
+#### 🟠 REVIEW — MG-02 · --color-neutral-8 (as border)
+
+**Rule:** HDS role mapping  
+**Class:** judgment (Jev) · **Band B** (advisory)  
+**Confidence:** 0.62  
+
+**Actual:** --color-palette-border-default  
+**Expected:** an HDS border role, or none
+
+Jev maps `--color-neutral-8` (#fcfcfd, used as border by Button, Card, Typography) to HDS `--color-palette-border-default`. Confidence 0.62 is below the gate, so this needs a designer to confirm.
+
+**Affects:**
+- Button
+- Card
+- Typography
+
+**Recommendation:** Record the mapping. Confirm with design before migrating any component that uses it.
 
 #### 🟠 REVIEW — MT-01 · --color-info-1
 
@@ -1126,7 +1538,7 @@ Jev classified `--color-warning-4` as `bare-index`. Advisory only: IDS documents
 
 **Recommendation:** Derive the swatch list from the token set instead of hand-listing it — that removes this entire class of drift permanently. Failing that, add the missing steps to ThemeColors.jsx, or remove them from ids.css if they were not intended to ship.
 
-## 🟢 Passing (97)
+## 🟢 Passing (101)
 
 <details><summary>Show passing checks</summary>
 
@@ -1157,6 +1569,10 @@ Jev classified `--color-warning-4` as `bare-index`. Advisory only: IDS documents
 | AX-03 | Button (dark mode) | 14.44:1 — ring `--color-secondary-3` #c1eaff on offset `--color-neutral-1` #141416 |
 | AX-03 | Button (light mode) | 5.8:1 — ring `--color-secondary-1` #0865b4 on offset `--color-neutral-8` #fcfcfd |
 | AX-03 | Typography | not interactive — no focusable element detected |
+| MG-02 | --color-primary-1 (as bg) | --color-palette-bg-brand |
+| MG-02 | --color-primary-2 (as border) | --color-palette-border-brand |
+| MG-02 | --color-primary-2 (as txt) | --color-palette-txt-brand |
+| MG-02 | --color-neutral-8 (as bg) | --color-palette-bg-default |
 | MT-01 | --color-error-1 | status |
 | MT-01 | --color-error-2 | status |
 | MT-01 | --color-error-3 | status |

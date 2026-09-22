@@ -13,7 +13,7 @@
 
 import { STATUS } from '../parse/resolve.mjs';
 import { isColor } from '../color/wcag.mjs';
-import { QUESTION_VERSION, interpret, mt01, mt04, nm01, nm02, nm03, nm05 } from '../jev/questions.mjs';
+import { QUESTION_VERSION, interpret, mg02, mt01, mt04, nm01, nm02, nm03, nm05 } from '../jev/questions.mjs';
 
 const skipped = (rule, ruleName, subject, reason, extra = {}) => ({
 	verdict: 'SKIPPED',
@@ -462,4 +462,149 @@ export async function judgeHierarchy({ jev, typography, config }) {
 	return results;
 }
 
-export const judgmentRules = [judgeNaming, judgeDuplicates, judgeBrandPalette, judgeHierarchy];
+
+/**
+ * MG-02 — Which HDS role should each IDS token feed?
+ *
+ * The migration mapping, built the only way it can be: code narrows, Jev
+ * judges.
+ *
+ * Nearest-colour matching is worse than useless here. `migrate.mjs` already
+ * shows why — it maps MotorTrend's success green onto a Hearst grey, because
+ * the RGB distance happens to be small. Role assignment is a question about
+ * purpose, and purpose is not in the value.
+ *
+ * The deterministic half narrows candidates by how each token is ACTUALLY
+ * used, read from the component scan: a token only ever applied as a
+ * background cannot become a text role, so those options are never offered.
+ * That keeps the Choice small enough to answer confidently and stops the model
+ * inventing cross-property mappings.
+ *
+ * `none` is a first-class answer. HDS has one brand slot and no secondary
+ * role, so several MotorTrend tokens genuinely have no home — recording that
+ * gap is the useful output, not papering over it.
+ */
+const HDS_ROLES = {
+	bg: {
+		'bg-brand': 'The primary brand background — the surface a brand-coloured button or banner sits on.',
+		'bg-subtle-brand': 'A lightly tinted brand background, for selected or highlighted states rather than primary emphasis.',
+		'bg-default': 'The default neutral surface for content.',
+		'bg-page': 'The page ground itself, behind all content.',
+		'bg-subtle': 'A quiet neutral surface, one step off the default, for grouping or de-emphasis.',
+		'bg-knockout': 'A dark surface intended to carry light content knocked out of it.',
+		'bg-default-error': 'A neutral surface in an error state.',
+		'bg-utility': 'A surface for utility chrome — navigation bars and toolbars rather than content.',
+	},
+	txt: {
+		'txt-brand': 'Text in the brand colour, for emphasis or brand-coloured links.',
+		'txt-default': 'Default body text.',
+		'txt-subtle': 'Secondary or de-emphasised text — captions, metadata, timestamps.',
+		'txt-knockout': 'Light text intended to sit on a dark surface.',
+		'txt-error': 'Text conveying an error.',
+		'txt-link': 'Hyperlink text.',
+		'txt-on-brand': 'Text placed directly on a brand-coloured surface.',
+	},
+	border: {
+		'border-brand': 'A border in the brand colour.',
+		'border-default': 'The default neutral border.',
+		'border-subtle': 'A quiet divider or hairline.',
+		'border-error': 'A border conveying an error.',
+		'border-knockout': 'A border intended for use on a dark surface.',
+	},
+	icon: {
+		'icon-brand': 'An icon in the brand colour.',
+		'icon-default': 'A default neutral icon.',
+		'icon-subtle': 'A de-emphasised icon.',
+		'icon-error': 'An icon conveying an error.',
+		'icon-knockout': 'An icon intended for use on a dark surface.',
+	},
+};
+
+/** Which HDS role families a token could plausibly map to, from real usage. */
+function propertiesUsedFor(usages) {
+	const props = new Set();
+	for (const u of usages) {
+		if (u.utility === 'bg') props.add('bg');
+		else if (u.utility === 'text') props.add('txt');
+		else if (u.utility === 'border' || u.utility === 'ring' || u.utility === 'outline' || u.utility === 'divide') props.add('border');
+		else if (u.utility === 'fill' || u.utility === 'stroke') props.add('icon');
+	}
+	return [...props];
+}
+
+export async function judgeRoleMapping({ graph, resolutions, byToken, components, jev, config }) {
+	// Build token -> observed properties from the component scan.
+	const usageByToken = new Map();
+	for (const c of components.values()) {
+		for (const u of c.usages) {
+			if (!usageByToken.has(u.token)) usageByToken.set(u.token, []);
+			usageByToken.get(u.token).push(u);
+		}
+	}
+
+	const candidates = [...graph.tokens.keys()].filter((n) => {
+		const t = graph.tokens.get(n);
+		return t?.category === 'color' && !n.endsWith('-default') && isJudgeable(n, resolutions.get(n)) && usageByToken.has(n);
+	});
+
+	if (!candidates.length) return [];
+
+	if (!jev.enabled) {
+		return [
+			skipped('MG-02', 'HDS role mapping', `${candidates.length} tokens in use`, jev.skipReason, {
+				subjectType: 'graph',
+				explanation:
+					`Judgment rule not evaluated: ${jev.skipReason}. ` +
+					`This is the migration mapping: which HDS role each Ignition token should feed. It cannot be derived from values — ` +
+					`nearest-colour matching maps MotorTrend's success green onto a Hearst grey because the RGB distance is small.`,
+			}),
+		];
+	}
+
+	const results = [];
+	const work = [];
+	for (const name of candidates) {
+		for (const prop of propertiesUsedFor(usageByToken.get(name))) {
+			if (HDS_ROLES[prop]) work.push({ name, prop });
+		}
+	}
+
+	const answers = await mapLimit(work, 8, async ({ name, prop }) => {
+		const subject = subjectFor(graph, resolutions, byToken, name);
+		const roles = Object.entries(HDS_ROLES[prop]).map(([role, description]) => ({ role, description }));
+		const a = await jev.ask([mg02(subject, prop, roles)]);
+		return { name, prop, subject, answer: a.mg02_role_mapping };
+	});
+
+	for (const { name, prop, subject, answer } of answers) {
+		const r = interpret(answer, { threshold: config.jev.thresholds['MG-02'] ?? 0.7, failOn: false });
+		const choice = r.choice ?? answer?.choice ?? null;
+		const mapped = choice && choice !== 'none';
+
+		results.push({
+			verdict: r.verdict === 'REVIEW' ? 'REVIEW' : mapped ? 'PASS' : 'WARN',
+			class: 'J',
+			rule: 'MG-02',
+			ruleName: 'HDS role mapping',
+			subject: `${subject.name} (as ${prop})`,
+			subjectType: 'token',
+			confidence: answer?.confidence ?? null,
+			actual: mapped ? `--color-palette-${choice}` : (choice ?? 'unjudged'),
+			expected: `an HDS ${prop} role, or none`,
+			explanation: mapped
+				? `Jev maps \`${subject.name}\` (${subject.resolved}, used as ${prop} by ${subject.affects.join(', ') || 'no scanned component'}) to HDS \`--color-palette-${choice}\`.` +
+					(r.verdict === 'REVIEW' ? ` Confidence ${(answer?.confidence ?? 0).toFixed(2)} is below the gate, so this needs a designer to confirm.` : '')
+				: choice === 'none'
+					? `Jev found no HDS ${prop} role that fits \`${subject.name}\`. HDS has one brand slot and no secondary or accent role, so this is expected for part of MotorTrend's palette — and it is the gap the migration has to resolve, not a mapping to force.`
+					: r.reason ?? `No mapping returned for \`${subject.name}\`.`,
+			recommendation: mapped
+				? `Record the mapping. Confirm with design before migrating any component that uses it.`
+				: `Escalate: \`${subject.name}\` has no HDS home as a ${prop}. Either HDS gains a role for it, or MotorTrend accepts losing it.`,
+			affects: subject.affects,
+		});
+	}
+
+	return results;
+}
+
+export const judgmentRules = [judgeNaming, judgeDuplicates, judgeBrandPalette, judgeHierarchy, judgeRoleMapping];

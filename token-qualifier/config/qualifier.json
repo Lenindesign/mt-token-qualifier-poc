@@ -1,36 +1,56 @@
 {
   "$comment": "Configuration for `npm run tokens:qualify`. Everything here is a policy decision, deliberately separated from rule code so a designer or lead can change intent without touching implementation. See tools/token-qualifier/README.md.",
-
   "sources": {
-    "base": ["src/tailwind/ids.css"],
+    "base": [
+      "src/tailwind/ids.css"
+    ],
     "themes": {
-      "motortrend": ["src/tailwind/themes/motortrend.css"],
-      "hotrod": ["src/tailwind/themes/hotrod.css"],
-      "caranddriver": ["src/tailwind/themes/caranddriver.css"]
+      "motortrend": [
+        "src/tailwind/themes/motortrend.css"
+      ],
+      "hotrod": [
+        "src/tailwind/themes/hotrod.css"
+      ],
+      "caranddriver": [
+        "src/tailwind/themes/caranddriver.css"
+      ]
     },
     "generatedConfig": "src/tailwind/config.ts",
     "components": "src/components"
   },
-
   "primaryTheme": "motortrend",
-
   "surfaces": {
     "$comment": "NEEDS DESIGN SIGN-OFF. Contrast verdicts are entirely determined by this list: a token is only 'inaccessible' relative to the backgrounds it is actually placed on. This set was inferred from IDS usage, not confirmed by design. Shrinking it hides real failures; padding it invents false ones.",
     "$signedOffBy": null,
-    "light": ["color-neutral-8", "color-neutral-7", "color-neutral-6"],
-    "dark": ["color-neutral-1"],
-    "literals": ["#ffffff"]
+    "light": [
+      "color-neutral-8",
+      "color-neutral-7",
+      "color-neutral-6"
+    ],
+    "dark": [
+      "color-neutral-1"
+    ],
+    "literals": [
+      "#ffffff"
+    ]
   },
-
   "foreground": {
     "$comment": "Tokens evaluated as text/icon colours by AX-01. Excludes the surfaces themselves and non-colour categories.",
-    "excludeCategories": ["animation", "layout", "other"],
-    "excludeSuffixes": ["-default"]
+    "excludeCategories": [
+      "animation",
+      "layout",
+      "other"
+    ],
+    "excludeSuffixes": [
+      "-default"
+    ]
   },
-
   "external": {
     "$comment": "Variables intentionally defined outside IDS. Referencing these is correct, not a dangling reference, so ST-01 must not flag them. Without this list ST-01 reports 2 false positives and the one real defect (--colors-neutral-4) gets lost in the noise.",
-    "prefixes": ["radix-", "tw-"],
+    "prefixes": [
+      "radix-",
+      "tw-"
+    ],
     "names": [
       "font-heading",
       "font-body",
@@ -40,7 +60,6 @@
       "font-caption"
     ]
   },
-
   "approvedTypography": {
     "$comment": "MT-05. Transcribed from documentation/foundations/3-themes/*.mdx, which is the documented source of truth for each brand's font stack. Note CarAndDriver sets all six font variables while MotorTrend and HotRod set only two and rely on the fallback chain in ids.css.",
     "motortrend": {
@@ -61,7 +80,6 @@
       "font-subtitle": "NeueHaas"
     }
   },
-
   "approvedScales": {
     "$comment": "MT-02 / MT-03. IDS defines no spacing tokens at all, so `spacing` is intentionally empty and MT-02 reports a coverage gap rather than pass-by-vacuum. `breakpoints` are IDS's current screens; hdsBreakpoints is the migration target and they disagree on 3 of 5 steps.",
     "spacing": [],
@@ -80,18 +98,20 @@
       "max": "1600px"
     }
   },
-
   "components": {
     "$comment": "PoC scope. ArticleCard and ArticleHeader do not exist under those names in IDS; these are the honest equivalents.",
-    "include": ["Button", "Card", "Typography"],
+    "include": [
+      "Button",
+      "Card",
+      "Typography"
+    ],
     "aliases": {
       "Card": "Article Card (IDS: Card + CardTitle/CardContent/CardMedia)",
-      "Typography": "Article Header (IDS: Typography variants — NOT tokenized, see R8)"
+      "Typography": "Article Header (IDS: Typography variants \u2014 NOT tokenized, see R8)"
     }
   },
-
   "jev": {
-    "$comment": "Class J judgment rules. `enabled: false` stubs them out: the interface is built and fixture-tested, but no network call is made and no key is required. Thresholds are placeholders until the confidence distribution has been measured on real IDS tokens — see README 'Promoting a judgment rule'.",
+    "$comment": "Class J judgment rules. `enabled: false` stubs them out: the interface is built and fixture-tested, but no network call is made and no key is required. Thresholds are placeholders until the confidence distribution has been measured on real IDS tokens \u2014 see README 'Promoting a judgment rule'.",
     "enabled": "auto",
     "model": "jev-latest",
     "cache": ".token-qualifier-cache.json",
@@ -101,28 +121,47 @@
       "NM-03": 0.85,
       "NM-05": 0.9,
       "MT-01": 0.85,
-      "MT-04": null
+      "MT-04": null,
+      "MG-02": 0.7
     }
   },
-
   "bands": {
     "$comment": "Which rules may fail a pull request. Blocking is deterministic-only by design: a PR must only be blockable by something a developer can re-run locally and get the identical answer to. Nobody should have to argue with a probability to land a change.",
-
     "$blockingRule": "A rule may only be promoted to `blocking` once it is CLEAN on main. Promoting a rule that already fails means the next unrelated pull request is blocked by somebody else's bug, and the check loses its mandate on day one.",
-    "blocking": ["ST-01", "ST-02", "ST-03", "ST-04", "AX-02", "AX-03"],
-
-    "$pendingComment": "Deterministic, blocking-eligible, and currently FAILING — so held out of `blocking` until resolved. These are real defects, not rule bugs; each needs a decision rather than a code fix.",
+    "blocking": [
+      "ST-01",
+      "ST-02",
+      "ST-03",
+      "ST-04",
+      "AX-02",
+      "AX-03"
+    ],
+    "$pendingComment": "Deterministic, blocking-eligible, and currently FAILING \u2014 so held out of `blocking` until resolved. These are real defects, not rule bugs; each needs a decision rather than a code fix.",
     "pending": {
       "AX-01": "4 failures: --color-primary-2, --color-neutral-4, --color-error-2, --color-success-2 fail 4.5:1 on some approved light surfaces. Unblocked by design either adjusting those values or narrowing `surfaces` (which still needs $signedOffBy).",
       "MT-03": "IDS and HDS breakpoints disagree on 3 of 5 steps. Unblocked by agreeing one breakpoint set as part of the migration; not fixable inside IDS alone."
     },
-
-    "advisory": ["ST-05", "ST-06", "ST-07", "AX-04", "AX-05", "MT-02", "MT-05", "MG-01", "NM-01", "NM-02", "NM-03", "NM-05", "MT-01", "MT-04"],
+    "advisory": [
+      "ST-05",
+      "ST-06",
+      "ST-07",
+      "AX-04",
+      "AX-05",
+      "MT-02",
+      "MT-05",
+      "MG-01",
+      "NM-01",
+      "NM-02",
+      "NM-03",
+      "NM-05",
+      "MT-01",
+      "MT-04",
+      "MG-02"
+    ],
     "reportOnly": []
   },
-
   "enforcement": {
-    "$comment": "ENABLED. The six rules in `bands.blocking` now fail the build; they are all deterministic, offline and reproducible, and all clean on this branch. Everything else annotates without gating. Promote a rule out of `pending` only after it is clean — see $blockingRule.",
+    "$comment": "ENABLED. The six rules in `bands.blocking` now fail the build; they are all deterministic, offline and reproducible, and all clean on this branch. Everything else annotates without gating. Promote a rule out of `pending` only after it is clean \u2014 see $blockingRule.",
     "mode": "blocking"
   }
 }

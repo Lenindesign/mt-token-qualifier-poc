@@ -200,3 +200,40 @@ export function interpret(answer, { threshold, failOn }) {
 	}
 	return { verdict: 'JUDGED', confidence, choice: answer.choice ?? answer.score, probabilities: answer.probabilities };
 }
+
+/**
+ * MG-02 — Which HDS role should this IDS token feed?
+ *
+ * The migration question a value comparison cannot answer. Ignition names
+ * colours by position (`primary-2`); HDS names them by role (`bg-brand`,
+ * `txt-subtle`, `border-error`). Nearest-colour matching produces mappings
+ * that are numerically close and semantically meaningless — it would happily
+ * map MotorTrend's success green onto a Hearst grey because the RGB distance
+ * is small.
+ *
+ * Code narrows the candidate set to the roles that match how the token is
+ * ACTUALLY used (a token only ever applied as a background cannot become a
+ * text role), and Jev chooses among them. `none` is a first-class answer: many
+ * Ignition tokens have no HDS home, and inventing one is worse than recording
+ * the gap.
+ */
+export const mg02 = (token, property, candidates) => ({
+	id: 'mg02_role_mapping',
+	type: 'choice',
+	instructions:
+		`This design token is migrating from the Ignition Design System, which names colours by position in a ramp, ` +
+		`to the Hearst Design System, which names them by the role they play. Choose the Hearst role this token should feed. ` +
+		`Judge by the token's purpose and how it is used, not by which Hearst colour happens to be closest in value.`,
+	criteria: {
+		...Object.fromEntries(candidates.map((c) => [c.role, c.description])),
+		none: 'No Hearst role is a good home for this token. Its purpose has no equivalent in the target vocabulary, and forcing a mapping would lose meaning.',
+	},
+	state: {
+		ids_token: token.name,
+		ids_value: token.resolved,
+		used_as: property,
+		used_by_components: token.affects,
+		ids_ramp_position: token.name.match(/-(\d+)$/)?.[1] ?? null,
+		note: 'Hearst has one brand slot and no secondary or accent role, so not every Ignition brand colour can map.',
+	},
+});
