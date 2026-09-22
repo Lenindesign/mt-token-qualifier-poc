@@ -1,0 +1,100 @@
+IDS → HDS Migration Analysis      theme: motortrend      2026-09-22
+==============================================================================
+
+1. SCALE — this is a restructure, not a rename
+
+  Ignition   54 tokens, one flat tier of numbered ramps
+  Hearst     3035 tokens, three tiers named by role
+  Ratio      ~56x more granular
+
+  Ignition names colours by POSITION (primary-2, neutral-4).
+  Hearst names them by ROLE (bg-brand, txt-default, border-subtle).
+  So one IDS token fans out into many HDS roles, and most HDS tokens
+  have no IDS ancestor at all. There is no 1:1 mapping to write.
+
+2. BRAND REACH — how much of HDS MotorTrend actually controls
+
+  Brand hooks in HDS               14
+  Tokens reachable through them    56 of 3035  (1.8%)
+
+  Injecting MotorTrend's palette into HDS reaches 1.8% of its tokens.
+  The other 2979 are fixed: HDS's own neutrals, status colours and
+  component tokens. Migrating means accepting those, or negotiating
+  overrides that HDS has no mechanism for today.
+
+3. COLOUR EQUIVALENCE — nearest HDS primitive to each IDS colour
+
+  Exact matches: 0 of 30
+
+  IDS token           value     nearest HDS primitive   value      Δ   note
+  color-primary-1     #c11b17   _palette-red-48         #cc2828     24   visibly different
+  color-primary-2     #e90c17   _palette-red-48         #cc2828     44   no close match
+  color-primary-3     #ff858a   _palette-red-73         #fc7d79     19   visibly different
+  color-secondary-1   #0865b4   _palette-blue-42        #0d58c9     25   visibly different
+  color-secondary-2   #33ccff   _palette-blue-69        #63a8fd     60   no close match
+  color-secondary-3   #c1eaff   _palette-blue-92        #d7e9fe     22   visibly different
+  color-error-1       #4c272e   _palette-gray-23        #3b3b3b     29   visibly different
+  color-error-2       #d32f2f   _palette-red-48         #cc2828     12   visibly different
+  color-error-3       #e38a8a   _palette-red-73         #fc7d79     33   no close match
+  color-error-4       #fae5e5   _palette-red-96         #feecec     11   visibly different
+  color-info-1        #1d3b54   _palette-gray-23        #3b3b3b     39   no close match
+  color-info-2        #0865b4   _palette-blue-42        #0d58c9     25   visibly different
+  color-info-3        #33ccff   _palette-blue-69        #63a8fd     60   no close match
+  color-info-4        #c1eaff   _palette-blue-92        #d7e9fe     22   visibly different
+  color-neutral-1     #141416   _palette-gray-7         #121212      5   close
+  color-neutral-2     #23262f   _palette-gray-16        #292929      9   blue cast (12) — HDS grey is hue-neutral
+  color-neutral-3     #353945   _palette-gray-23        #3b3b3b     12   blue cast (16) — HDS grey is hue-neutral
+  color-neutral-4     #6e7481   _palette-gray-46        #757575     14   blue cast (19) — HDS grey is hue-neutral
+  color-neutral-5     #b1b5c3   _palette-gray-74        #bdbdbd     16   blue cast (18) — HDS grey is hue-neutral
+  color-neutral-6     #e6e8ec   _palette-gray-93        #ededed      9   close
+  color-neutral-7     #f4f5f6   _palette-gray-96        #f5f5f5      1   close
+  color-neutral-8     #fcfcfd   _palette-gray-100       #fff         5   close
+  color-success-1     #283d32   _palette-gray-23        #3b3b3b     21   visibly different
+  color-success-2     #388e3c   _palette-green-27       #088153     55   no close match
+  color-success-3     #81c784   _palette-green-66       #71e0b0     53   no close match
+  color-success-4     #e7f4e7   _palette-gray-93        #ededed     11   visibly different
+  color-warning-1     #553925   _palette-orange-18      #542f08     31   no close match
+  color-warning-2     #f57c00   _palette-orange-55      #f28c26     41   no close match
+  color-warning-3     #ffb74d   _palette-orange-63      #faa747     18   visibly different
+  color-warning-4     #fff1df   _palette-orange-93      #fff1db      4   close
+
+  MotorTrend's mid-ramp neutrals carry a deliberate blue cast; HDS's greys
+  are hue-neutral. Adopting HDS loses that cast unless it is negotiated
+  back in — and neutrals are not brand-reachable, so it cannot be themed.
+
+4. CATEGORY COVERAGE — what has to be created rather than mapped
+
+  color            30 / 599  ██
+  typography        0 / 574  █   ← IDS typography is utility classes, not tokens
+  spacing           0 / 12  █   ← IDS has no spacing tokens at all
+  component         0 / 1458  █   ← IDS has no component tier
+
+  Typography, spacing and component tokens are not migrations. They are
+  net-new design work: 0 → 2044 tokens with no Ignition ancestor.
+
+5. BREAKPOINTS — the silent one
+
+  Agreeing: 2 of 5
+
+  name    IDS        HDS
+  sm      640px      no equivalent
+  md      768px      tablet (same)
+  lg      1024px     laptop (same)
+  xl      1280px     no equivalent
+  2xl     1536px     no equivalent
+
+  Both systems use the same generic names at different values, so a
+  component moved across changes its responsive behaviour with nothing
+  in the diff to review.
+
+==============================================================================
+WHAT THIS MEANS FOR THE MIGRATION PLAN
+
+  · A token-for-token mapping table is the wrong artifact. The work is
+    re-expressing MotorTrend intent in HDS role vocabulary.
+  · Only 1.8% of HDS is brand-controllable, so the first decision is
+    whether MotorTrend accepts HDS's neutrals and status colours as-is.
+  · Typography, spacing and component tiers are new design work, not
+    ports. Budget for design time, not just engineering time.
+  · Breakpoints must be agreed before any component moves.
+

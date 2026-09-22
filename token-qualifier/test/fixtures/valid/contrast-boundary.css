@@ -1,0 +1,5 @@
+/* #767676 on white = 4.54:1 — just over AA. Proves no off-by-one. */
+@theme inline {
+  --color-neutral-8: #ffffff;
+  --color-text-ok: #767676;
+}

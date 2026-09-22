@@ -1,0 +1,53 @@
+From f3801aafc91b0a1a10aaf283be2bfe120c16d568 Mon Sep 17 00:00:00 2001
+From: Lenin Aviles <lenin.aviles@hearst.com>
+Date: Mon, 21 Sep 2026 17:56:06 -0700
+Subject: [PATCH 2/2] fix(tailwind): correct dangling token reference in
+ scrollbar-dark
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+var(--colors-neutral-4) is plural and was never defined; the token is
+--color-neutral-4. Both declarations in @utility scrollbar-dark were inert,
+so the dark scrollbar thumb had no colour at all.
+
+Also fixes the adjacent -webskit-scrollbar typo in the same block.
+
+Now covered by rule ST-01, which scans var() references across the whole
+stylesheet rather than only token declarations — this defect lives inside an
+@utility block, where a declarations-only scan would never have found it.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+---
+ src/tailwind/ids.css | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/tailwind/ids.css b/src/tailwind/ids.css
+index b39c484..3dd6830 100644
+--- a/src/tailwind/ids.css
++++ b/src/tailwind/ids.css
+@@ -250,18 +250,18 @@
+ }
+ 
+ @utility scrollbar-dark {
+-  &::-webskit-scrollbar {
++  &::-webkit-scrollbar {
+     cursor: default !important;
+     width: 6px;
+   }
+   &::-webkit-scrollbar-thumb {
+-    background-color: var(--colors-neutral-4);
++    background-color: var(--color-neutral-4);
+     border-radius: 8px;
+   }
+   &::-webkit-scrollbar-track {
+     background: transparent;
+   }
+-  scrollbar-color: var(--colors-neutral-4);
++  scrollbar-color: var(--color-neutral-4);
+   scrollbar-width: thin;
+ }
+ 
+-- 
+2.50.1 (Apple Git-155)
+

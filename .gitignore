@@ -1,0 +1,12 @@
+# Local Claude Code session config — permissions and launch settings, not research.
+.claude/
+
+# Jev answer cache: machine-local, and a stale cached judgment is worse than none.
+**/.token-qualifier-cache.json
+
+# Generated reports. Committed copies live at the repo root instead.
+token-report.json
+token-report.md
+
+node_modules/
+.DS_Store

@@ -1,0 +1,8 @@
+/* A clean three-tier graph. Every rule should pass. */
+@theme inline {
+  --color-neutral-1: #141416;
+  --color-neutral-8: #fcfcfd;
+  --color-primary-1: #c11b17;
+  --color-text-body: var(--color-neutral-1);
+  --aspect-paper: 8.5 / 11;
+}

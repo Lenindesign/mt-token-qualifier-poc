@@ -1,0 +1,50 @@
+From 9821690f415bed19b169123b1786558d448a9da2 Mon Sep 17 00:00:00 2001
+From: Lenin Aviles <lenin.aviles@hearst.com>
+Date: Mon, 21 Sep 2026 17:56:06 -0700
+Subject: [PATCH 1/2] fix(Button): make light-mode focus ring meet WCAG 2.2 SC
+ 1.4.11
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+The focus ring was drawn in secondary-2 (#33ccff) over a neutral-8 ring
+offset (#fcfcfd), giving 1.83:1 where SC 1.4.11 Non-text Contrast requires
+3:1. Light-mode keyboard focus was effectively invisible on every component
+inheriting these base classes.
+
+Switched to secondary-1 (#0865b4) — 5.80:1, and in the same ramp, so the
+focus affordance keeps its blue identity. Dark mode was already compliant at
+14.44:1 and is unchanged.
+
+Neither class was wrong on its own, which is why review and linting both
+missed it: the defect existed only in the relationship between the ring
+colour and its offset. Now covered by rule AX-03, which pairs them.
+
+Verified in the rendered component: computed box-shadow is
+rgb(8, 101, 180) at the 4px ring, rgb(252, 252, 253) at the 2px offset.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+---
+ src/components/Button/Button.variants.tsx | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/src/components/Button/Button.variants.tsx b/src/components/Button/Button.variants.tsx
+index ccedc5b..ca98d2d 100644
+--- a/src/components/Button/Button.variants.tsx
++++ b/src/components/Button/Button.variants.tsx
+@@ -11,7 +11,11 @@ export const ButtonVariants = cva(
+     'focus-visible:ring-2',
+     'focus-visible:ring-offset-2',
+     'focus-visible:ring-offset-neutral-8',
+-    'focus-visible:ring-secondary-2',
++    // secondary-1 (#0865b4), not secondary-2 (#33ccff): against the neutral-8
++    // ring offset, secondary-2 gives only 1.83:1 where WCAG 2.2 SC 1.4.11
++    // requires 3:1, making light-mode keyboard focus effectively invisible.
++    // secondary-1 clears it at 5.80:1 and keeps the ring in the same ramp.
++    'focus-visible:ring-secondary-1',
+     'font-semibold',
+     'inline-flex',
+     'items-center',
+-- 
+2.50.1 (Apple Git-155)
+

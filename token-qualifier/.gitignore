@@ -1,0 +1,11 @@
+# Local Jev answer cache. Machine-local build artifact, not source.
+#
+# It holds no credentials — only question-hash → answer pairs — but it should
+# not be committed: it would go stale silently against edited questions, and a
+# stale cached answer is worse than no answer because the report cannot tell
+# the difference.
+.token-qualifier-cache.json
+
+# Generated reports, when written here rather than to the repo root.
+token-report.json
+token-report.md

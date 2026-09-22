@@ -1,0 +1,9 @@
+/* F2 reproduction: plural typo, referenced from a @utility block. */
+@theme inline {
+  --color-neutral-4: #6e7481;
+  --color-neutral-8: #fcfcfd;
+}
+@utility scrollbar-dark {
+  background-color: var(--colors-neutral-4);
+  scrollbar-color: var(--colors-neutral-4);
+}

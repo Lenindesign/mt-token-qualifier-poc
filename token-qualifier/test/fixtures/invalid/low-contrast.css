@@ -1,0 +1,5 @@
+/* #777 on white = 4.48:1 — just under AA. Boundary guard. */
+@theme inline {
+  --color-neutral-8: #ffffff;
+  --color-text-weak: #777777;
+}

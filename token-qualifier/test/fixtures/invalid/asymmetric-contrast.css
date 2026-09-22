@@ -1,0 +1,6 @@
+/* F5 reproduction: passes on one light surface, fails on another. */
+@theme inline {
+  --color-neutral-8: #fcfcfd;
+  --color-neutral-6: #e6e8ec;
+  --color-text-secondary: #6e7481;
+}

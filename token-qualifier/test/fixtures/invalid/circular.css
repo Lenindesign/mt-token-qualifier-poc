@@ -1,0 +1,7 @@
+/* a -> b -> c -> a must terminate and be reported, not hang. */
+@theme inline {
+  --color-a: var(--color-b);
+  --color-b: var(--color-c);
+  --color-c: var(--color-a);
+  --color-neutral-8: #fcfcfd;
+}
