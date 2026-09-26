@@ -16,7 +16,8 @@ have ten minutes.
 | `AUDIT.md` | The full audit — token architecture, nine verified defects, rule design, gating policy, open questions | Anyone going deeper than the artifact |
 | `MIGRATION-ANALYSIS.txt` | IDS → HDS numbers: scale, brand reach, colour equivalence, category coverage, breakpoints | Migration planning |
 | `SAMPLE-REPORT.md` | Example output of a full qualification run | Anyone deciding whether to adopt the tool |
-| `token-qualifier/` | The tool itself — 22 rules, 41 tests, zero dependencies | Engineers |
+| `token-qualifier/` | The tool itself — 23 rules, 41 tests, zero dependencies | Engineers |
+| `BRAND-CONTRAST-REPORT.txt` | Contrast verification across all 89 Hearst brands, resolved from DTCG source | Design systems, accessibility |
 | `fixes/*.patch` | The two accessibility fixes as reviewable patches | Whoever lands them |
 
 ---
@@ -45,6 +46,25 @@ Items 2, 3 and 4 are upstream asks on the HDS team. They block the migration
 rather than delay it.
 
 ---
+
+## Verifying every brand
+
+Brand values reach production through ConfigDS at request time, so they never appear in a
+build — which is why nothing in the pipeline checks them. `bin/verify-brands.mjs` resolves
+each brand statically (the same `primitives < alias_base_theme < brand` merge the runtime
+performs) so contrast can be checked in CI. It is a snapshot for verification only; nothing
+is served and the delivery model is untouched.
+
+```bash
+node token-qualifier/bin/verify-brands.mjs --tokens <dtcg-token-dir>
+node token-qualifier/bin/verify-brands.mjs --tokens <dir> --brand motortrend
+node token-qualifier/bin/verify-brands.mjs --tokens <dir> --json
+```
+
+Needs the DTCG token files from `Media-Platforms/hearst-design-system`
+(`packages/design-tokens/tokens/`). First run: **273 failures across all 89 brands**, of
+which one systemic pair accounts for 73 of them and several resolve to 1:1 — foreground
+identical to background.
 
 ## Running the tool
 

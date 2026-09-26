@@ -1,0 +1,475 @@
+Brand contrast verification — 89 brands, resolved from DTCG source
+
+  pairs checked per brand : 33
+  brands with a failure   : 89 of 89
+  total failures          : 273
+  brands with no brand colour set (inherit Hearst default): 12
+
+─────────────────────────────────────────────────────────────────────────
+
+25ans   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+altaonline
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   4.23:1  need 4.5  txt.subtle #757575  on  bg.page #f5f5f5
+
+autoweek
+   1.54:1  need 4.5  txt.brand #ffc84e  on  bg.default #ffffff
+   1.54:1  need 4.5  txt.brand #ffc84e  on  bg.page #ffffff
+   1.54:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ffc84e
+   1.54:1  need 3  icon.brand #ffc84e  on  bg.default #ffffff
+   1.54:1  need 3  icon.brand #ffc84e  on  bg.page #ffffff
+   1.54:1  need 3  border.brand #ffc84e  on  bg.default #ffffff
+   1.54:1  need 3  border.brand #ffc84e  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.default-hover #757575  on  bg.default-hover #ededed
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+bestproducts
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+bicycling
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+biography
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   4.23:1  need 4.5  txt.subtle #757575  on  bg.page #f5f5f5
+
+caranddriver
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   4.02:1  need 4.5  txt.brand #2f86b8  on  bg.default #ffffff
+   4.02:1  need 4.5  txt.brand #2f86b8  on  bg.page #ffffff
+
+caranddriver_es-es
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   4.02:1  need 4.5  txt.brand #2f86b8  on  bg.default #ffffff
+   4.02:1  need 4.5  txt.brand #2f86b8  on  bg.page #ffffff
+
+cosmopolitan
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+cosmopolitan_en-gb
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+cosmopolitan_es-es
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+cosmopolitan_it-it
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+cosmopolitan_nl-nl
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+cosmopolitan_zh-tw
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+countryliving
+      1:1  need 4.5  txt.on-brand #0a5c80  on  bg.brand #0a5c80
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+countryliving_en-gb
+      1:1  need 4.5  txt.on-brand #0a5c80  on  bg.brand #0a5c80
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+default_client   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+delish
+      1:1  need 4.5  txt.subtle #757575  on  bg.subtle #757575
+   2.71:1  need 4.5  txt.default-hover #ff553e  on  bg.default-hover #ededed
+   3.17:1  need 4.5  txt.default-hover #ff553e  on  bg.default #ffffff
+   4.07:1  need 4.5  txt.default #121212  on  bg.subtle #757575
+
+diezminutos
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+digitalspy   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elle
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elle_en-gb
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elle_es-es
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elle_it-it
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elle_ja-jp
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elle_nl-nl
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elle_zh-tw
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+ellechina   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+elledecor
+      1:1  need 3  icon.default #ffffff  on  bg.default #ffffff
+      1:1  need 3  icon.default #ffffff  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   3.96:1  need 4.5  txt.default-hover #3777bc  on  bg.default-hover #ededed
+
+elledecor_es-es
+      1:1  need 3  icon.default #ffffff  on  bg.default #ffffff
+      1:1  need 3  icon.default #ffffff  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   3.96:1  need 4.5  txt.default-hover #3777bc  on  bg.default-hover #ededed
+
+elledecor_it-it
+      1:1  need 3  icon.default #ffffff  on  bg.default #ffffff
+      1:1  need 3  icon.default #ffffff  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   3.96:1  need 4.5  txt.default-hover #3777bc  on  bg.default-hover #ededed
+
+elledecoration   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+ellegirl
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+ellemen   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+esquire
+      1:1  need 4.5  txt.discount #cc2828  on  bg.discount #cc2828
+      1:1  need 3  icon.knockout #ffffff  on  bg.knockout #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.default #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.page #ffffff
+   1.88:1  need 4.5  txt.knockout-subtle #bdbdbd  on  bg.knockout #ffffff
+   3.44:1  need 4.5  txt.knockout-error #f4504e  on  bg.knockout #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.default #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.page #ffffff
+   3.56:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ff3a30
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+esquire_en-gb
+      1:1  need 4.5  txt.discount #cc2828  on  bg.discount #cc2828
+      1:1  need 3  icon.knockout #ffffff  on  bg.knockout #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.default #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.page #ffffff
+   1.88:1  need 4.5  txt.knockout-subtle #bdbdbd  on  bg.knockout #ffffff
+   3.44:1  need 4.5  txt.knockout-error #f4504e  on  bg.knockout #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.default #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.page #ffffff
+   3.56:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ff3a30
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+esquire_es-es
+      1:1  need 4.5  txt.discount #cc2828  on  bg.discount #cc2828
+      1:1  need 3  icon.knockout #ffffff  on  bg.knockout #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.default #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.page #ffffff
+   1.88:1  need 4.5  txt.knockout-subtle #bdbdbd  on  bg.knockout #ffffff
+   3.44:1  need 4.5  txt.knockout-error #f4504e  on  bg.knockout #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.default #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.page #ffffff
+   3.56:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ff3a30
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+esquire_immersive-feed-default
+      1:1  need 4.5  txt.discount #cc2828  on  bg.discount #cc2828
+      1:1  need 3  icon.knockout #ffffff  on  bg.knockout #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.default #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.page #ffffff
+   1.88:1  need 4.5  txt.knockout-subtle #bdbdbd  on  bg.knockout #ffffff
+   3.44:1  need 4.5  txt.knockout-error #f4504e  on  bg.knockout #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.default #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.page #ffffff
+   3.56:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ff3a30
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+esquire_it-it
+      1:1  need 4.5  txt.discount #cc2828  on  bg.discount #cc2828
+      1:1  need 3  icon.knockout #ffffff  on  bg.knockout #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.default #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.page #ffffff
+   1.88:1  need 4.5  txt.knockout-subtle #bdbdbd  on  bg.knockout #ffffff
+   3.44:1  need 4.5  txt.knockout-error #f4504e  on  bg.knockout #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.default #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.page #ffffff
+   3.56:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ff3a30
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+esquire_ja-jp
+      1:1  need 4.5  txt.discount #cc2828  on  bg.discount #cc2828
+      1:1  need 3  icon.knockout #ffffff  on  bg.knockout #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.default #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.page #ffffff
+   1.88:1  need 4.5  txt.knockout-subtle #bdbdbd  on  bg.knockout #ffffff
+   3.44:1  need 4.5  txt.knockout-error #f4504e  on  bg.knockout #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.default #ffffff
+   3.56:1  need 4.5  txt.brand #ff3a30  on  bg.page #ffffff
+   3.56:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ff3a30
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+fotogramas   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+fujingaho   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+gente   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+goodhousekeeping
+    1.6:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #ededed
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+   2.14:1  need 4.5  txt.brand #53c2be  on  bg.default #ffffff
+   2.14:1  need 4.5  txt.brand #53c2be  on  bg.page #ffffff
+   2.14:1  need 3  icon.brand #53c2be  on  bg.default #ffffff
+   2.14:1  need 3  icon.brand #53c2be  on  bg.page #ffffff
+   2.14:1  need 3  border.brand #53c2be  on  bg.default #ffffff
+   2.14:1  need 3  border.brand #53c2be  on  bg.page #ffffff
+
+goodhousekeeping_en-gb
+    1.6:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #ededed
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+   2.14:1  need 4.5  txt.brand #53c2be  on  bg.default #ffffff
+   2.14:1  need 4.5  txt.brand #53c2be  on  bg.page #ffffff
+   2.14:1  need 3  icon.brand #53c2be  on  bg.default #ffffff
+   2.14:1  need 3  icon.brand #53c2be  on  bg.page #ffffff
+   2.14:1  need 3  border.brand #53c2be  on  bg.default #ffffff
+   2.14:1  need 3  border.brand #53c2be  on  bg.page #ffffff
+
+harpersbazaar
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+harpersbazaar_en-gb
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+harpersbazaar_es-es
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+harpersbazaar_it-it
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+harpersbazaar_ja-jp
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+harpersbazaar_nl-nl
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+harpersbazaar_zh-tw
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+housebeautiful
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+housebeautiful_en-gb
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+jan
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+marieclaire
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+menshealth
+      1:1  need 4.5  txt.link #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link #ffffff  on  bg.page #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.page #ffffff
+    1.6:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #ededed
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+
+menshealth_en-gb
+      1:1  need 4.5  txt.link #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link #ffffff  on  bg.page #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.page #ffffff
+    1.6:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #ededed
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+
+menshealth_es-es
+      1:1  need 4.5  txt.link #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link #ffffff  on  bg.page #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.page #ffffff
+    1.6:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #ededed
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+
+menshealth_immersive-feed-default
+      1:1  need 4.5  txt.link #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link #ffffff  on  bg.page #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.page #ffffff
+    1.6:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #ededed
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+
+menshealth_it-it
+      1:1  need 4.5  txt.link #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link #ffffff  on  bg.page #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.page #ffffff
+    1.6:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #ededed
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+
+modernliving
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   3.95:1  need 4.5  txt.default-hover #00837d  on  bg.default-hover #ededed
+
+motortrend   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+nationalgeographic
+   1.51:1  need 4.5  txt.brand #ffcc00  on  bg.default #ffffff
+   1.51:1  need 4.5  txt.brand #ffcc00  on  bg.page #ffffff
+   1.51:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #ffcc00
+   1.51:1  need 3  icon.brand #ffcc00  on  bg.default #ffffff
+   1.51:1  need 3  icon.brand #ffcc00  on  bg.page #ffffff
+   1.51:1  need 3  border.brand #ffcc00  on  bg.default #ffffff
+   1.51:1  need 3  border.brand #ffcc00  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+nuevoestilo   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+oprahdaily
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.default #ffffff
+   1.88:1  need 4.5  txt.subtle #bdbdbd  on  bg.page #ffffff
+   2.45:1  need 4.5  txt.subtle #bdbdbd  on  bg.subtle #757575
+   4.07:1  need 4.5  txt.default #121212  on  bg.subtle #757575
+
+popularmechanics
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+prevention
+   2.17:1  need 4.5  txt.brand #44c1c5  on  bg.default #ffffff
+   2.17:1  need 4.5  txt.brand #44c1c5  on  bg.page #ffffff
+   2.17:1  need 3  icon.brand #44c1c5  on  bg.default #ffffff
+   2.17:1  need 3  icon.brand #44c1c5  on  bg.page #ffffff
+   2.17:1  need 3  border.brand #44c1c5  on  bg.default #ffffff
+   2.17:1  need 3  border.brand #44c1c5  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+prima
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+quest
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+quote
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+redbookmag
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+redonline
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+richesse   [no brand colour — inherits Hearst default #5539cc]
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+roadandtrack
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+runnersworld
+   1.49:1  need 3  icon.brand #59e7ed  on  bg.default #ffffff
+   1.49:1  need 3  icon.brand #59e7ed  on  bg.page #ffffff
+   1.49:1  need 3  border.brand #59e7ed  on  bg.default #ffffff
+   1.49:1  need 3  border.brand #59e7ed  on  bg.page #ffffff
+   2.62:1  need 4.5  txt.brand #13b1b9  on  bg.default #ffffff
+   2.62:1  need 4.5  txt.brand #13b1b9  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+runnersworld_en-gb
+   1.49:1  need 3  icon.brand #59e7ed  on  bg.default #ffffff
+   1.49:1  need 3  icon.brand #59e7ed  on  bg.page #ffffff
+   1.49:1  need 3  border.brand #59e7ed  on  bg.default #ffffff
+   1.49:1  need 3  border.brand #59e7ed  on  bg.page #ffffff
+   2.62:1  need 4.5  txt.brand #13b1b9  on  bg.default #ffffff
+   2.62:1  need 4.5  txt.brand #13b1b9  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+runnersworld_it-it
+   1.49:1  need 3  icon.brand #59e7ed  on  bg.default #ffffff
+   1.49:1  need 3  icon.brand #59e7ed  on  bg.page #ffffff
+   1.49:1  need 3  border.brand #59e7ed  on  bg.default #ffffff
+   1.49:1  need 3  border.brand #59e7ed  on  bg.page #ffffff
+   2.62:1  need 4.5  txt.brand #13b1b9  on  bg.default #ffffff
+   2.62:1  need 4.5  txt.brand #13b1b9  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+seventeen
+   2.02:1  need 4.5  txt.brand #ff92de  on  bg.default #ffffff
+   2.02:1  need 4.5  txt.brand #ff92de  on  bg.page #ffffff
+   2.02:1  need 3  icon.brand #ff92de  on  bg.default #ffffff
+   2.02:1  need 3  icon.brand #ff92de  on  bg.page #ffffff
+   2.02:1  need 3  border.brand #ff92de  on  bg.default #ffffff
+   2.02:1  need 3  border.brand #ff92de  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+thepioneerwoman
+   1.45:1  need 3  border.default #d6d6d6  on  bg.default #ffffff
+   1.45:1  need 3  border.default #d6d6d6  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #f4edd8
+
+townandcountrymag
+      1:1  need 4.5  txt.default-hover #121212  on  bg.default-hover #121212
+      1:1  need 4.5  txt.link #ffffff  on  bg.default #ffffff
+      1:1  need 4.5  txt.link-hover #ffffff  on  bg.default #ffffff
+   1.12:1  need 4.5  txt.link #ffffff  on  bg.page #f1f2f4
+   1.12:1  need 4.5  txt.link-hover #ffffff  on  bg.page #f1f2f4
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+   4.11:1  need 4.5  txt.subtle #757575  on  bg.page #f1f2f4
+
+veranda
+   1.43:1  need 4.5  txt.brand #e7d6b3  on  bg.default #ffffff
+   1.43:1  need 4.5  txt.brand #e7d6b3  on  bg.page #ffffff
+   1.43:1  need 4.5  txt.on-brand #ffffff  on  bg.brand #e7d6b3
+   1.43:1  need 3  icon.brand #e7d6b3  on  bg.default #ffffff
+   1.43:1  need 3  icon.brand #e7d6b3  on  bg.page #ffffff
+   1.43:1  need 3  border.brand #e7d6b3  on  bg.default #ffffff
+   1.43:1  need 3  border.brand #e7d6b3  on  bg.page #ffffff
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+womansday
+   3.94:1  need 4.5  txt.subtle #757575  on  bg.subtle #ededed
+
+womenshealthmag
+   3.59:1  need 4.5  txt.subtle #757575  on  bg.subtle #dbe3fa
+
+womenshealthmag_en-gb
+   3.59:1  need 4.5  txt.subtle #757575  on  bg.subtle #dbe3fa
+
+womenshealthmag_es-es
+   3.59:1  need 4.5  txt.subtle #757575  on  bg.subtle #dbe3fa
+
+womenshealthmag_immersive-feed-default
+   3.59:1  need 4.5  txt.subtle #757575  on  bg.subtle #dbe3fa
+
+womenshealthmag_ja-jp
+   3.59:1  need 4.5  txt.subtle #757575  on  bg.subtle #dbe3fa
+
+womenshealthmag_zh-tw
+   3.59:1  need 4.5  txt.subtle #757575  on  bg.subtle #dbe3fa
+
+─────────────────────────────────────────────────────────────────────────
+
+Brands inheriting the Hearst default brand colour:
+  25ans
+  default_client
+  digitalspy
+  ellechina
+  elledecoration
+  ellemen
+  fotogramas
+  fujingaho
+  gente
+  motortrend
+  nuevoestilo
+  richesse
